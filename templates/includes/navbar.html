@@ -4,17 +4,12 @@
         <a href="{% url 'home' %}" class="navbar-brand mr-3">Yangofilm</a>
         <ul class="nav d-none d-md-flex">
             <li class="nav-item"><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Acueil</a></li>
-            <li class="nav-item"><a href="{% url 'films' %}" class="nav-link {% if request.resolver_match.url_name == 'films' %}active{% endif %}">Films</a></li>
-            <li class="nav-item"><a href="{% url 'series' %}" class="nav-link {% if request.resolver_match.url_name == 'series' %}active{% endif %}">Series</a></li>
-            <li class="nav-item"><a href="{% url 'documentaires' %}" class="nav-link {% if request.resolver_match.url_name == 'documentaires' %}active{% endif %}">Documentaires</a></li>
-            <li class="nav-item"><a href="{% url 'emissions' %}" class="nav-link {% if request.resolver_match.url_name == 'emissions' %}active{% endif %}">Emissions</a></li>
-            <li class="nav-item"><a href="{% url 'tele_realites' %}" class="nav-link {% if request.resolver_match.url_name == 'tele_realites' %}active{% endif %}">Télé réalités</a></li>
         </ul>
         <div class="ml-auto">
         <div class="row justify-content-end align-items-center">
 
             <div class="col-auto p-0">
-                <form action="{% url 'search' %}" method="get" class="d-none d-md-block">
+                <form action="#" method="get" class="d-none d-md-block">
                     <input type="search" class="d-none d-md-inline" name="search" id="search" placeholder="Recherche">
                     <button type="submit" id="search-btn"><i class="fa fa-search"></i></button>
                 </form>
@@ -48,11 +43,6 @@
 <div id="menu" class="collapse navbar-collapse responsive w-100">
 <ul class="nav">
     <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Acueil</a></li>
-    <li class="nav-item"><a href="{% url 'films' %}" class="nav-link">Films</a></li>
-    <li class="nav-item"><a href="{% url 'series' %}" class="nav-link">Series</a></li>
-    <li class="nav-item"><a href="{% url 'documentaires' %}" class="nav-link">Documentaires</a></li>
-    <li class="nav-item"><a href="{% url 'emissions' %}" class="nav-link">Emissions</a></li>
-    <li class="nav-item"><a href="{% url 'tele_realites' %}" class="nav-link">Télé réalités</a></li>
 </ul>
 </div>
 

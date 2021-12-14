@@ -7,10 +7,6 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-def Index(request):
-    return render(request, 'accounts.html')
-
-
 def Register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
