@@ -1,0 +1,46 @@
+{% load static %}
+
+<!-- Sidebar -->
+<aside id="sidebar" class="col-md-3 py-2 mt-5">
+    {% for pub in pubs %}
+    <div class="mb-3">
+        <div class="card border-0">
+            <img src="{{pub.picture.url}}" alt="{{pub.title}}" class="card-img-top w-100">
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="genre mt-3">
+
+        <h5>Genre</h5>
+        <ul class="list-group">
+
+            {% for genre in genres %}
+            <li class="list-group-item"><a href="{% url 'genre' genre.slug %}">{{genre}}</a></li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
+    <div class="other-films mt-3">
+
+        {% for post in aside %}
+        <a href="{% url 'detail_post' post.slug %}">
+            <div class="row px-1 mb-3 mx-2">
+                <div class="col-3 p-0">
+                    <img src="{{post.picture.url}}" alt="{{post.title}}" class="w-100">
+                </div>
+                <div class="col-9">
+                    <p class="mt-2">
+                        <span>{{post.title}}</span> <br> <br>
+                        <span>{{post.date|date:"M Y"}}</span>
+                    </p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+
+    </div>
+
+</aside>
+<!-- End Sidebar -->

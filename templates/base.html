@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        {% include 'includes/head.html' %}
+    
+        <title>Yangofilm - {% block title %}{% endblock %}</title>
+    
+    </head>
+
+    {% include 'includes/navbar.html' %}
+
+    {% if user.is_superuser %}
+    <p class="position-fixed" style="bottom: 30px; right: 30px; background-color: red; border-radius: 50%; padding: 15px; z-index: 999;">
+        <a href="{% url 'add_post' %}" style="color: #fff; text-decoration: none; font-size: 25px">+</a>
+    </p>
+    {% endif %}
+
+    
+
+    {% block content %}{% endblock %}
+
+    {% include 'includes/sidebar.html' %}
+        
+
+    </main>
+    
+    {% include 'includes/footer.html' %}
+  
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        {% include 'includes/head.html' %}
+    
+        <title>Yangofilm - Connexion</title>
+    
+    </head>
+<body id="login" style="background-image: url('{% static 'image/background.jpg' %}');">
+
+    <div style="z-index: 9; margin-top: 200px;">
+        <h1 class="text-center mb-3 text-danger">Connexion</h1>
+        
+        <form action="" method="post" class="form rounded" role="form" style="max-width: 30rem;">
+            {% csrf_token %}
+            {% if messages %}
+            {% for message in messages %}
+            <p class="bg-danger p-2">{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            <div class="form-group">
+                <input type="text" class="form-control" id="email_phone" name="email_phone" placeholder="Email ou téléphone">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
+            </div>
+            <button type="submit" class="btn btn-danger mb-3">Se connecter</button> <br>
+            <p>ou</p>
+            <a href="{% url 'register' %}" class="btn btn-primary mb-3">S'inscrire</a> <br>
+            <small><a href="{% url 'home' %}">Retour à la page d'accueil</a></small>
+        </form>
+
+    </div>
+  
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/yango.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<header class="header p-0 px-md-3">
+    <nav class="navbar navbar-expand-md p-0 m-0 h-100">
+        <span id="btn-menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu"><i class="fa fa-bars"></i></span>
+        <a href="{% url 'home' %}" class="navbar-brand mr-3">Yangofilm</a>
+        <ul class="nav d-none d-md-flex">
+            <li class="nav-item"><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Acueil</a></li>
+            <li class="nav-item"><a href="{% url 'films' %}" class="nav-link {% if request.resolver_match.url_name == 'films' %}active{% endif %}">Films</a></li>
+            <li class="nav-item"><a href="{% url 'series' %}" class="nav-link {% if request.resolver_match.url_name == 'series' %}active{% endif %}">Series</a></li>
+            <li class="nav-item"><a href="{% url 'documentaires' %}" class="nav-link {% if request.resolver_match.url_name == 'documentaires' %}active{% endif %}">Documentaires</a></li>
+            <li class="nav-item"><a href="{% url 'emissions' %}" class="nav-link {% if request.resolver_match.url_name == 'emissions' %}active{% endif %}">Emissions</a></li>
+            <li class="nav-item"><a href="{% url 'tele_realites' %}" class="nav-link {% if request.resolver_match.url_name == 'tele_realites' %}active{% endif %}">Télé réalités</a></li>
+        </ul>
+        <div class="ml-auto">
+        <div class="row justify-content-end align-items-center">
+
+            <div class="col-auto p-0">
+                <form action="{% url 'search' %}" method="get" class="d-none d-md-block">
+                    <input type="search" class="d-none d-md-inline" name="search" id="search" placeholder="Recherche">
+                    <button type="submit" id="search-btn"><i class="fa fa-search"></i></button>
+                </form>
+                <a href="/search/?search=search_page" id="search-btn"><i class="fa fa-search d-md-none"></i></a>
+            </div>
+
+            <div class="col-auto px-3">
+                
+                {% if user.is_authenticated %}
+                
+                <div class="text-center mr-2" type="button" data-toggle="collapse" data-target="#links">
+                    <span class="d-block mr-2"><i class="fa fa-user"></i></span>
+                </div>
+                <ul class="collapse mr-5 pr-5" id="links">
+                    <li class="nav-item"><a href="#" class="nav-link"><p class="mb-0">S'abonner</p></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Profil</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Paramètres</a></li>
+                    <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Deconnexion</a></li>
+                </ul>
+                {% else %}
+                <p class="mb-0"><a href="{% url 'login' %}">Connexion</a></p>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+
+    
+</nav>
+<!-- Menu responsive -->
+<div id="menu" class="collapse navbar-collapse responsive w-100">
+<ul class="nav">
+    <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Acueil</a></li>
+    <li class="nav-item"><a href="{% url 'films' %}" class="nav-link">Films</a></li>
+    <li class="nav-item"><a href="{% url 'series' %}" class="nav-link">Series</a></li>
+    <li class="nav-item"><a href="{% url 'documentaires' %}" class="nav-link">Documentaires</a></li>
+    <li class="nav-item"><a href="{% url 'emissions' %}" class="nav-link">Emissions</a></li>
+    <li class="nav-item"><a href="{% url 'tele_realites' %}" class="nav-link">Télé réalités</a></li>
+</ul>
+</div>
+
+</header>
+
