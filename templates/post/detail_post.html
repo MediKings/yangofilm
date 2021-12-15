@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{post.title}}{% endblock %}
+
+{% block content %}
+    
+<main id="video-single" class="row">
+        
+    <div class="col-md-9 p-3">
+
+        <div class="container pb-5">
+
+            <h1 class="mt-5 mb-5">{{post.title}}</h1>
+
+            <video controls style="width: 100%;">
+                <source src="{{post.video.url}}">
+            </video>
+
+            <section>
+                <i class="fa fa-eye"></i> 4k vues | <button class="btn btn-primary py-0">Like</button>
+                
+                {% if user.is_superuser %}
+                - <a href="{% url 'update_post' post.slug %}" class="btn btn-primary"><i class="fa fa-edit">Modifier</i></a> 
+                <a href="{% url 'delete_post' post.slug %}" class="btn btn-danger"><i class="fa fa-trash">Supprimer</i></a>
+                {% endif %}
+                
+            </section>
+            <hr style="background-color: white;">
+
+            <section class="row align-items-center">
+                <div class="col-auto">
+                    <img src="{{post.picture.url}}" alt="{{post.title}}" style="width: 150px; float: left;">
+                </div>
+                <div class="col-auto">
+                    <h4>{{post.title}}</h4><br>
+
+                    <p><i>Réalisateur:</i> {{post.realisateur}}</p>
+
+                    <p>{{post.type}}</p>
+    
+                    <p>120 Likes</p>
+                    <p>
+                    {% for genre in post.genre.all %}
+                    <span class="bg-primary rounded mr-2 p-1 text-white">{{genre}}</span>
+                    {% endfor %}
+                    </p>
+
+                    <p>{{post.date|date:"M Y"}}</p>
+    
+                </div>
+            </section>
+
+            <section>
+                <h4>Synopsis</h4>
+                <p class="bg-dark p-2">{{post.synopsis}}</p>
+            </section>
+
+            <div class="comment">
+                {% if comments %}
+                <h3>{{comments.count}} Commentaires</h3><br>
+                {% for comment in comments %}
+                <strong style="text-transform: capitalize;">{{comment.user.last_name}} {{comment.user.first_name}}</strong><br>
+                <p class="ml-3 mb-0 mt-1">{{comment.content}}</p>
+                <small class="ml-3">{{comment.date}}</small><br><br>
+                {% endfor %}
+                {% endif %}
+                <h4 class="mb-3">Laissez un commentaire</h4>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form.content}}
+                    <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
+                </form>
+            </div>
+
+        </div>
+
+        {% if similar%}
+        <section id="oth" class="px-5 mt-3">
+
+            <h2>Films similaire</h2>
+
+            <div class="row items">
+                {{similar}}
+                <div class="col-md-2 mb-3">
+                    <a href=""><img src="{{similar.picture.url}}" alt="{{similar.title}}" class="w-100 h-100"></a>
+                </div>
+                
+            </div>
+        </section>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Séries{% endblock %}
+
+{% block content %}
+
+    <main id="films" class="row justify-content-center w-100 mx-auto">
+        
+        <div class="col-md-9 p-0">
+
+            <div class="container">
+
+                <h2>Series</h2>
+
+                <div class="row">
+
+                    {% for post in posts %}
+                    <div class="col-4 col-md-2 mb-3 p-1">
+                        <a href="{% url 'detail_post' post.slug %}"><img src="{{post.picture.url}}" alt="{{post.title}}" class="w-100 h-100"></a>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+                
+            </div>
+        </div>
+
+    {% endblock %}

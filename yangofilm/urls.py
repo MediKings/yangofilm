@@ -8,7 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('post.urls')),
     path('accounts/', include('accounts.urls')),
-    # path('back/', include('back.urls')),
+    path('back/', include('back.urls')),
 ]
 
 if settings.DEBUG:

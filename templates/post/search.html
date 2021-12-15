@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Recherche{% endblock %}
+
+{% block content %}
+
+    <main id="recherche" class="row justify-content-center w-100 mx-auto">
+        <div class="col-md-9 p-0">
+            <div class="container">
+                {% if search == '' %}
+                <h2>Inserez le terme à rechercher</h2>
+                {% elif search == 'search_page' %}
+                <form action="{% url 'search' %}" method="get" class="d-md-none">
+                    <input type="text"name="search" id="search" placeholder="Recherche">
+                    <button type="submit" id="search-btn"><i class="fa fa-search"></i></button>
+                </form>
+                {% else %}
+                {% if posts %}
+                <form action="{% url 'search' %}" method="get" class="d-md-none mb-3">
+                    <input type="text"name="search" id="search" placeholder="Recherche">
+                    <button type="submit" id="search-btn"><i class="fa fa-search"></i></button>
+                </form>
+                <h2>Resultats pour "<span>{{search}}</span>"</h2>
+                <div class="row">
+                    {% for post in posts %}
+                    <div class="col-4 col-md-2 dispo p-1 mb-2">
+                        <a href="{% url 'detail_post' post.slug %}"><img src="{{post.picture.url}}" alt="{{post.title}}" class="w-100 h-100"></a>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <h2>Pas de resultat pour "<span>{{search}}</span>"</h2>
+                {% endif %}
+                {% endif %}
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}

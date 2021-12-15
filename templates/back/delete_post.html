@@ -1,0 +1,32 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        {% include 'includes/head.html' %}
+    
+        <title>Yangofilm - Supprimer</title>
+    
+    </head>
+<body id="register" style="background-image: url('{% static 'image/img1.jpg' %}');">
+
+    <div style="z-index: 9;">
+        <h1 class="text-center mb-3 text-danger">Supprimer</h1>
+
+        <form action="" method="post" enctype="multipart/form-data" role="form" class="p-5 shadow">
+            {% csrf_token %}
+            <h5>Voulez-vous vraiment supprimer <strong>"{{object.title}}"</strong> ?</h5> <br>
+            <button type="submit" class="btn btn-danger rounded mr-3">Supprimer</button>
+            <a href="{% url 'detail_post' object.slug %}" class="btn btn-info rounded">Annuler</a>
+        </form>
+
+    </div>
+  
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/yango.js' %}"></script>
+
+</body>
+</html>

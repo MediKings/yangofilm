@@ -14,18 +14,17 @@
 
         <h5>Genre</h5>
         <ul class="list-group">
-
             {% for genre in genres %}
-            <li class="list-group-item"><a href="#">{{genre}}</a></li>
+            <li class="list-group-item">
+                <a href="{% url 'genre' genre.slug %}">{{genre}}</a>
+            </li>
             {% endfor %}
-
         </ul>
     </div>
 
     <div class="other-films mt-3">
-
         {% for post in aside %}
-        <a href="#">
+        <a href="{% url 'detail_post' post.slug %}">
             <div class="row px-1 mb-3 mx-2">
                 <div class="col-3 p-0">
                     <img src="{{post.picture.url}}" alt="{{post.title}}" class="w-100">
@@ -39,7 +38,6 @@
             </div>
         </a>
         {% endfor %}
-
     </div>
 
 </aside>
