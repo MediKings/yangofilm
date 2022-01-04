@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Films{% endblock %}
+
+{% block content %}
+
+    <main id="films" class="row justify-content-center w-100 mx-auto">
+        
+        <div class="col-md-9 p-0">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-auto">
+                        <i class="fa fa-user fa-8x"></i>
+                    </div>
+                    <div class="col-auto mt-5">
+                        <div class="row">
+                            <div class="col-auto mr-md-3 p-3">
+                                <a href="#" class="border rounded p-2">S'abonner</a>
+                            </div>
+                            <div class="col-auto p-3">
+                                <a href="{% url 'logout' %}" class="border rounded p-2">Deconnexion</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="bg-white">
+                {% if request.user.is_superuser %}
+                <div class="row">
+                    <div class="col-auto p-3">
+                        <a href="/admin/accounts/user/" class="border rounded p-2">Utilisateurs</a>
+                    </div>
+                    <div class="col-auto p-3">
+                        <a href="/admin/post/post/" class="border rounded p-2">Publications</a>
+                    </div>
+                    <div class="col-auto p-3">
+                        <a href="/admin/post/type/" class="border rounded p-2">Types</a>
+                    </div>
+                    <div class="col-auto p-3">
+                        <a href="/admin/post/genre/" class="border rounded p-2">Genres</a>
+                    </div>
+                    <div class="col-auto p-3">
+                        <a href="/admin/post/pub/" class="border rounded p-2">Publicités</a>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="row pt-3">
+                    <div class="col-auto mr-3">
+                        <h2>Infos utilisateur</h2>
+                    </div>
+                    <div class="col-auto mt-2">
+                        <a href="{% url 'update_profile' %}" class="border rounded p-2">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="user_infos mt-4">
+                    <h5 class="mb-3">Nom: {{user.last_name}} {{user.first_name}}</h5>
+                    <h5 class="mb-3">Email: {{user.email}}</h5>
+                    <h5 class="mb-3">Téléphone: {{user.phone}}</h5>
+                </div>
+                
+            </div>
+        </div>
+
+    {% endblock %}

@@ -23,6 +23,9 @@ a{
     color: #fff;
     text-decoration: none !important;
 }
+a:hover{
+    color: #fff;
+}
 header .navbar-brand{
     color: red;
     font-weight: 800;
@@ -159,8 +162,13 @@ input:focus, button:active{
 #sidebar{
     border-left: 1px solid rgb(82, 82, 82);
 }
+#sidebar .pub img{
+    height: 350px;
+    object-fit: cover;
+    object-position: top;
+}
 #sidebar img{
-    height: 120px;
+    height: 90px;
     object-fit: cover;
 }
 #sidebar .genre li{
@@ -180,7 +188,7 @@ input:focus, button:active{
     text-decoration: none;
 }
 #sidebar .other-films img{
-    height: 90px;
+    height: 150px;
 }
 #sidebar .other-films span{
     font-size: 15px;

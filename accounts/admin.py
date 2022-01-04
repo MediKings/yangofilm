@@ -19,7 +19,7 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('email', 'phone', 'password1', 'password2'),
         }),
     ) 
-    list_display = ('email', 'phone', 'first_name', 'last_name', 'is_staff')
+    list_display = ('first_name', 'last_name','email', 'phone', 'is_staff')
     search_fields = ('email', 'phone', 'first_name', 'last_name')
     ordering = ('email',)
 

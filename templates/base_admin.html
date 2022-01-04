@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        {% include 'includes/head.html' %}
+        
+        <title>Yangofilm - {% block title %}{% endblock %}</title>
+    
+        <style>
+            li{
+                background: transparent !important;
+            }
+        </style>
+
+    </head>
+
+    <nav class="navbar">
+        <h2>Yango Admin</h2>
+        <ul class="nav ml-auto">
+            <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Voir le site</a></li>
+            <li class="nav-item"><a href="{% url 'profile' %}"><i class="fa fa-user fa-2x"></i></a></li>
+        </ul>
+    </nav>
+    <hr class="bg-white my-1">
+
+    <div class="row">
+        <div class="col-3"><ul class="list-group" style="border-right: 1px solid #fff;">
+            <li class="list-group-item"><a href="#">Utilisateurs</a></li>
+            <li class="list-group-item"><a href="#">Auteurs</a></li>
+            <li class="list-group-item"><a href="#">Publications</a></li>
+            <li class="list-group-item"><a href="#">Publicité</a></li>
+            <li class="list-group-item"><a href="#">Slider</a></li>
+        </ul>
+        </div>
+    </div>
+
+    {% block content %}{% endblock %}
+        
+
+    </main>
+    
+    {% include 'includes/footer.html' %}
+  
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>
+

@@ -1,6 +1,22 @@
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from post.models import Post
+from django.shortcuts import render
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.contrib.auth import get_user_model
 from post.forms import PostForm
+from post.models import Post
+
+
+User = get_user_model()
+
+def Admin(request):
+    authors = Post.type
+    template_name = 'back/admin.html'
+    context = {'authors': authors}
+    return render(request, template_name, context)
+
+
+def Authors(request):
+    template_name = 'back/admin.html'
+    return render(request, template_name)
 
 
 # CRUD
