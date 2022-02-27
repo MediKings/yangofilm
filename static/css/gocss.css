@@ -6,6 +6,9 @@
     font-size: 13px;
     transition: all 0.5s;
 }
+html, body{
+    height: 100%;
+}
 body{
     background-color: rgb(22, 22, 22) !important;
     color: #ccc !important;
@@ -215,7 +218,6 @@ input:focus, button:active{
 #login form{
     background-color: rgb(10, 10, 10);
     padding: 10px;
-    height: 230px;
 }
 #register form{
     background-color: rgb(10, 10, 10);

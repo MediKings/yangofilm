@@ -12,15 +12,29 @@ User = get_user_model()
 
 def Register(request):
     if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            user=form.save()
-            login(request, user)
-            messages.success(request, f"Successfully")
-            return redirect('home')
-    else:
-        form = RegisterForm()
-    return render(request, 'accounts/register.html', {'form': form})
+        last_name = request.POST['last_name']
+        first_name = request.POST['first_name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        password1 = request.POST['password1']
+        if User.objects.filter(email=email):
+            messages.warning(request, "Cet email existe déjà")
+            return redirect('register')
+        elif User.objects.filter(phone=phone):
+            messages.warning(request, "Ce numéro existe déjà !")
+            return redirect('register')
+        else:
+            user = User.objects.create_user(email, phone, password1)
+            user.last_name = last_name
+            user.first_name = first_name
+            user.save()
+            if user:
+                auth = authenticate(username=user.email, password=password1)
+                if auth is not None:
+                    login(request, auth)
+                    messages.success(request, f"Enregistrement réussit")
+                    return redirect('home')
+    return render(request, 'accounts/register.html', {})
 
 
 def Login(request):
@@ -29,14 +43,17 @@ def Login(request):
     if request.method=='POST':
         if(User.objects.filter(email=email_phone).exists()):
             user = authenticate(username=email_phone, password=password)
-        else:
+        elif(User.objects.filter(phone=email_phone).exists()):
             user = User.objects.get(phone=email_phone)
             user = authenticate(username=user.email, password=password)
+        else:
+            messages.error(request, "Données incorrects! Réessayez")
+            return redirect('login')
         if user is not None:
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, f"Données incorrects! Réessayez")
+            messages.error(request, "Données incorrects! Réessayez")
             return redirect('login')
     else:
         return render(request, 'accounts/login.html')

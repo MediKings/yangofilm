@@ -9,46 +9,30 @@
         <title>Yangofilm - Inscription</title>
     
     </head>
-<body id="register" style="background-image: url('{% static 'image/background.jpg' %}');">
+<body id="register" class="align-items-center" style="background-image: url('{% static 'image/background.jpg' %}');">
 
     <div style="z-index: 9;">
-        <h1 class="text-center mb-3 text-danger">Inscription</h1>
-
-        {% if messages %}
-        {% for message in messages %}
-        <p class="w-auto bg-success">{{message}}</p>
-        {% endfor %}
-        {% endif %}
-        <form action="" method="post" class="form rounded" role="form" style="max-width: 30rem;">
+        <form action="" method="post" class="form rounded" role="form" style="width: 30rem;">
+            <h1 class="text-center mb-5 text-danger">Inscription</h1>
+            {% if messages %}
+            {% for message in messages %}
+            <p class="w-auto bg-success">{{message}}</p>
+            {% endfor %}
+            {% endif %}
             {% csrf_token %}
-            {{form|crispy}}
-            <!-- <div class="form-group">
-                <label for="id_last_name">Prénom</label>
-                {{form.first_name}}
+            <input type="text" name="last_name" class="form-control textinput textInput form-control" placeholder="Prénom" maxlength="50" required id="id_last_name"><br>
+            <input type="text" name="first_name" class="form-control textinput textInput form-control" placeholder="Nom" maxlength="50" required id="id_first_name"><br>
+            <input type="text" name="email" class="form-control textinput textInput form-control" placeholder="Email" maxlength="254" autofocus required id="id_email"><br>
+            <input type="text" name="phone" class="form-control textinput textInput form-control" placeholder="Téléphone" maxlength="20" required id="id_phone"><br>
+            <input type="password" name="password1" autocomplete="new-password" class="textinput textInput form-control" placeholder="Mot de passe" required id="id_password1"> <small id="hint_id_password1" class="form-text text-muted"><br>
+            <input type="password" name="password2" autocomplete="new-password" class="textinput textInput form-control" placeholder="Confirmation mot de passe" required id="id_password2"> <small id="hint_id_password2" class="form-text text-muted"><br>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-danger mb-3">S'inscrire</button> <br>
+                <p class="text-center">ou</p>
+                <a href="{% url 'login' %}" class="btn btn-primary mb-3">Se connecter</a> <br> 
             </div>
-            <div class="form-group">
-                <label for="id_first_name">Nom</label>
-                {{form.first_name}}
-            </div>
-            <div class="form-group">
-                <label for="id_email">Email</label>
-                {{form.email}}
-            </div>
-            <div class="form-group">
-                <label for="id_phone">Téléphone</label>
-                {{form.phone}}
-            </div>
-            <div class="form-group">
-                <label for="id_password1">Mot de passe</label>
-                {{form.password1}}
-            </div>
-            <div class="form-group">
-                <label for="id_password2">Confirmation</label>
-                {{form.password2}}
-            </div> -->
-            <button type="submit" class="btn btn-danger mb-3">S'inscrire</button> <br>
-            <p class="text-center">ou</p>
-            <a href="{% url 'login' %}" class="btn btn-primary mb-3">Se connecter</a> <br>
+
             <small><a href="{% url 'home' %}">Retour à la page d'accueil</a></small>
         </form>
 
