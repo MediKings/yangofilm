@@ -3,7 +3,7 @@
         <span type="button" class="navbar-toggler" data-target="#menu" data-toggle="collapse" aria-controls="menu"><i class="fa fa-bars"></i></span>
         <a href="{% url 'home' %}" class="navbar-brand mr-3">Yangofilm</a>
         <div id="menu" class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav">
                 <li class="nav-item"><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Accueil</a></li>
                 <li class="nav-item"><a href="{% url 'films' %}" class="nav-link {% if request.resolver_match.url_name == 'films' %}active{% endif %}">Films</a></li>
                 <li class="nav-item"><a href="{% url 'series' %}" class="nav-link {% if request.resolver_match.url_name == 'series' %}active{% endif %}">Séries</a></li>
