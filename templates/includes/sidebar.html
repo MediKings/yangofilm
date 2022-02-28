@@ -1,15 +1,19 @@
 {% load static %}
 
 <!-- Sidebar -->
-<aside id="sidebar" class="col-md-3 py-2 mt-5">
-    {% for pub in pubs %}
-    <div class="mb-3 pub">
-        <div class="card border-0">
-            <img src="{{pub.picture.url}}" alt="{{pub.title}}" class="card-img-top w-100">
+<aside id="sidebar" class="col-lg-3 py-2 mt-5">
+    <div class="row">
+        {% for pub in pubs %}
+        <div class="col-md-4 col-lg-12">
+        <div class="mb-3 pub">
+                <div class="card border-0">
+                   <img src="{{pub.picture.url}}" alt="{{pub.title}}" class="card-img-top w-100">
+                </div>
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-
+        
     <div class="genre mt-3">
 
         <h5>Genre</h5>
@@ -23,21 +27,25 @@
     </div>
 
     <div class="other-films mt-3">
+        <div class="row">
         {% for post in aside %}
-        <a href="{% url 'detail_post' post.slug %}">
-            <div class="row px-1 mb-3 mx-2">
-                <div class="col-3 p-0">
-                    <img src="{{post.picture.url}}" alt="{{post.title}}" class="w-100">
+        <div class="col-md-6 col-lg-12">
+            <a href="{% url 'detail_post' post.slug %}">
+                <div class="row px-1 mb-3 mx-2">
+                    <div class="col-3 p-0">
+                        <img src="{{post.picture.url}}" alt="{{post.title}}" class="w-100">
+                    </div>
+                    <div class="col-9">
+                        <p class="mt-2">
+                            <span>{{post.title}}</span> <br> <br>
+                            <span>{{post.date|date:"M Y"}}</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="col-9">
-                    <p class="mt-2">
-                        <span>{{post.title}}</span> <br> <br>
-                        <span>{{post.date|date:"M Y"}}</span>
-                    </p>
-                </div>
-            </div>
-        </a>
+            </a>
+        </div>
         {% endfor %}
+        </div>
     </div>
 
 </aside>

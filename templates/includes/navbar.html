@@ -1,15 +1,17 @@
 <header class="header p-0 px-md-3">
-    <nav class="navbar navbar-expand-md p-0 m-0 h-100">
-        <span id="btn-menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu"><i class="fa fa-bars"></i></span>
+    <nav class="navbar navbar-expand-lg p-0 m-0 h-100">
+        <span type="button" class="navbar-toggler" data-target="#menu" data-toggle="collapse" aria-controls="menu"><i class="fa fa-bars"></i></span>
         <a href="{% url 'home' %}" class="navbar-brand mr-3">Yangofilm</a>
-        <ul class="nav d-none d-md-flex">
-            <li class="nav-item"><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Accueil</a></li>
-            <li class="nav-item"><a href="{% url 'films' %}" class="nav-link {% if request.resolver_match.url_name == 'films' %}active{% endif %}">Films</a></li>
-            <li class="nav-item"><a href="{% url 'series' %}" class="nav-link {% if request.resolver_match.url_name == 'series' %}active{% endif %}">Séries</a></li>
-            <li class="nav-item"><a href="{% url 'emissions' %}" class="nav-link {% if request.resolver_match.url_name == 'emissions' %}active{% endif %}">Emissions</a></li>
-            <li class="nav-item"><a href="{% url 'documentaires' %}" class="nav-link {% if request.resolver_match.url_name == 'documentaires' %}active{% endif %}">Documentaires</a></li>
-            <li class="nav-item"><a href="{% url 'tele_realites' %}" class="nav-link {% if request.resolver_match.url_name == 'tele_realites' %}active{% endif %}">Télé réalité</a></li>
-        </ul>
+        <div id="menu" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Accueil</a></li>
+                <li class="nav-item"><a href="{% url 'films' %}" class="nav-link {% if request.resolver_match.url_name == 'films' %}active{% endif %}">Films</a></li>
+                <li class="nav-item"><a href="{% url 'series' %}" class="nav-link {% if request.resolver_match.url_name == 'series' %}active{% endif %}">Séries</a></li>
+                <li class="nav-item"><a href="{% url 'emissions' %}" class="nav-link {% if request.resolver_match.url_name == 'emissions' %}active{% endif %}">Emissions</a></li>
+                <li class="nav-item"><a href="{% url 'documentaires' %}" class="nav-link {% if request.resolver_match.url_name == 'documentaires' %}active{% endif %}">Documentaires</a></li>
+                <li class="nav-item"><a href="{% url 'tele_realites' %}" class="nav-link {% if request.resolver_match.url_name == 'tele_realites' %}active{% endif %}">Télé réalité</a></li>
+            </ul>
+        </div>
         <div class="ml-auto">
         <div class="row justify-content-end align-items-center">
 
@@ -41,7 +43,7 @@
     
 </nav>
 <!-- Menu responsive -->
-<div id="menu" class="collapse navbar-collapse responsive w-100">
+<!-- <div id="menu" class="collapse navbar-collapse responsive w-100">
 <ul class="nav">
     <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Acueil</a></li>
     <li class="nav-item"><a href="{% url 'films' %}" class="nav-link">Films</a></li>
@@ -50,7 +52,7 @@
     <li class="nav-item"><a href="{% url 'documentaires' %}" class="nav-link">Documentaires</a></li>
     <li class="nav-item"><a href="{% url 'tele_realites' %}" class="nav-link">Télé réalité</a></li>
 </ul>
-</div>
+</div> -->
 
 </header>
 

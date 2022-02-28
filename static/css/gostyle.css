@@ -166,13 +166,9 @@ input:focus, button:active{
     border-left: 1px solid rgb(82, 82, 82);
 }
 #sidebar .pub img{
-    height: 350px;
+    height: 250px;
     object-fit: cover;
     object-position: top;
-}
-#sidebar img{
-    height: 90px;
-    object-fit: cover;
 }
 #sidebar .genre li{
     background: transparent;
@@ -191,7 +187,7 @@ input:focus, button:active{
     text-decoration: none;
 }
 #sidebar .other-films img{
-    height: 150px;
+    height: auto;
 }
 #sidebar .other-films span{
     font-size: 15px;
@@ -232,27 +228,19 @@ footer{
 }
 
 @media screen and (max-width: 768px) {
-    header{
-        padding: 0px 10px;
+    #menu{
+        position: absolute;
+        width: 100%;
+        top: 40px;
+        background-color: black;
+        padding-left: 20px;
     }
-    header h3{
-        font-size: 20px;
-    }
-    header .nav{
-        flex-direction: column;
-    }
-    header form input{
-        width: 50px;
-    }
-    header .col-auto{
-        margin: 0px;
-    }
-    header p{
-        font-size: 7px !important;
-        padding: 5px;
+    #hero{
+        height: 500px;
+        object-fit: cover;
     }
     #hero img{
-        height: 300px;
+        height: 500px;
         object-fit: cover;
     }
     #recherche h2{
@@ -261,6 +249,9 @@ footer{
     #recherche span{
         font-size: 17px;
         font-weight: 600;
+    }
+    #sidebar .pub img{
+        height: 150px;
     }
 }
 

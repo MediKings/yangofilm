@@ -12,7 +12,7 @@ User = get_user_model()
 def Home(request):
     posts = Post.objects.all().order_by('-date')[:6]
     randoms = Post.objects.all().order_by('?')[:6]
-    aside = Post.objects.all().order_by('?')[:10]
+    aside = Post.objects.all().order_by('?')[:6]
     genres = Genre.objects.all()
     pubs = Pub.objects.all()
     context = {
@@ -55,7 +55,7 @@ def DetailPost(request, slug):
     
 def Films(request):
     posts = Post.objects.filter(type=1).order_by('-date')
-    aside = Post.objects.all().order_by('?')[:10]
+    aside = Post.objects.all().order_by('?')[:9]
     genres = Genre.objects.all()
     pubs = Pub.objects.all()
     context = {
@@ -69,7 +69,7 @@ def Films(request):
 
 def Series(request):
     posts = Post.objects.filter(type=2).order_by('-date')
-    aside = Post.objects.all().order_by('?')[:10]
+    aside = Post.objects.all().order_by('?')[:9]
     genres = Genre.objects.all()
     pubs = Pub.objects.all()
     context = {
@@ -83,7 +83,7 @@ def Series(request):
 
 def Documentaires(request):
     posts = Post.objects.filter(type=3).order_by('-date')
-    aside = Post.objects.all().order_by('?')[:10]
+    aside = Post.objects.all().order_by('?')[:9]
     genres = Genre.objects.all()
     pubs = Pub.objects.all()
     context = {
@@ -97,7 +97,7 @@ def Documentaires(request):
 
 def Emissions(request):
     posts = Post.objects.filter(type=4).order_by('-date')
-    aside = Post.objects.all().order_by('?')[:10]
+    aside = Post.objects.all().order_by('?')[:9]
     genres = Genre.objects.all()
     pubs = Pub.objects.all()
     context = {
@@ -111,7 +111,7 @@ def Emissions(request):
 
 def Tele_realites(request):
     posts = Post.objects.filter(type=5).order_by('-date')
-    aside = Post.objects.all().order_by('?')[:10]
+    aside = Post.objects.all().order_by('?')[:9]
     genres = Genre.objects.all()
     pubs = Pub.objects.all()
     context = {
@@ -140,7 +140,7 @@ def Genres(request, genre):
 
 def Nouveautes(request):
     posts = Post.objects.all().order_by('-date')
-    aside = Post.objects.all().order_by('?')[:10]
+    aside = Post.objects.all().order_by('?')[:9]
     genres = Genre.objects.all()
     template_name = 'post/nouveautes.html'
     context = {
@@ -153,7 +153,7 @@ def Nouveautes(request):
 
 # def Populaires(request):
 #     posts = Post.objects.all()
-#     aside = Post.objects.all().order_by('?')[:10]
+#     aside = Post.objects.all().order_by('?')[:9]
 #     genres = Genre.objects.all()
 #     template_name = 'post/populaires.html'
 #     context = {
@@ -166,7 +166,7 @@ def Nouveautes(request):
 
 # def Meilleures(request):
 #     posts = Post.objects.all()
-#     aside = Post.objects.all().order_by('?')[:10]
+#     aside = Post.objects.all().order_by('?')[:9]
 #     genres = Genre.objects.all()
 #     template_name = 'post/meilleures.html'
 #     context = {
@@ -179,7 +179,7 @@ def Nouveautes(request):
 
 # def Suggestions(request):
 #     posts = Post.objects.all()
-#     aside = Post.objects.all().order_by('?')[:10]
+#     aside = Post.objects.all().order_by('?')[:9]
 #     genres = Genre.objects.all()
 #     template_name = 'post/suggestions.html'
 #     context = {
