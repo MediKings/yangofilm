@@ -7,24 +7,11 @@ from django.forms import fields
 
 User = get_user_model()
 
-class RegisterForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ['last_name', 'first_name', 'email', 'phone', 'password1', 'password2']
-        widgets = {
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Prénom"}),
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Nom"}),
-            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Téléphone"}),
-            'password1': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Mot de passe'}),
-            'password2': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirmation mot de passe'}),
-        }
-
 
 class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'phone']
+        fields = ['last_name', 'first_name', 'email', 'phone']
         widgets = {
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Prénom"}),
             'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Nom"}),

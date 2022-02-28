@@ -1,8 +1,10 @@
-from django import forms
+import imp
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import logout, login, authenticate
 from django.contrib import messages
-from .forms import RegisterForm, UserUpdateForm
+from .forms import UserUpdateForm
 from django.contrib.auth.decorators import login_required
 from post.models import Post, Genre, Pub
 from django.contrib.auth import get_user_model
@@ -32,7 +34,6 @@ def Register(request):
                 auth = authenticate(username=user.email, password=password1)
                 if auth is not None:
                     login(request, auth)
-                    messages.success(request, f"Enregistrement réussit")
                     return redirect('home')
     return render(request, 'accounts/register.html', {})
 
@@ -65,12 +66,13 @@ def Logout(request):
 
 
 @login_required
-def Profile(request):
+def Profile(request, pk):
+    user = get_object_or_404(User, pk=pk)
     aside = Post.objects.all().order_by('?')[:10]
     genres = Genre.objects.all()
     pubs = Pub.objects.all()
     context = { 
-        'user': request.user, 
+        'user': user, 
         'genres': genres, 
         'aside': aside,
         'pubs': pubs
@@ -79,14 +81,13 @@ def Profile(request):
 
 
 @login_required
-def UpdateProfile(request):
+def UpdateProfile(request, pk):
     if request.method == 'POST':
         form = UserUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Profile mis à jour avec succès')
-            return redirect('profile')
-        else:
-            messages.error(request, f'Echec de mis à jour')
+            return HttpResponseRedirect(reverse('profile', args=[pk]))
+    else:
+        form = UserUpdateForm(instance=request.user)
     return render(request, 'accounts/update_profile.html', {'form': form})
     
