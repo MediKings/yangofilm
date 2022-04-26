@@ -34,11 +34,11 @@ header .navbar-brand{
     font-weight: 800;
     font-size: 20px;
 }
-header .nav{
+header .navbar-nav{
     border-left: 1px solid rgb(82, 82, 82);
     margin-left: 20px;
 }
-header .nav .active{
+header .navbar-nav .active{
     background-color: red;
     color: #fff;
 }
@@ -57,6 +57,7 @@ header form input{
     color: #ccc;
     border-bottom: 1px solid #ccc;
     padding: 5px;
+    font-size: 17px;
 }
 header form button{
     background: transparent;
@@ -113,6 +114,9 @@ header .connexion li a{
     color: #ccc;
     text-decoration: none;
 }
+
+
+/* Search Bar */
 #recherche form{
     width: auto;
     border: 1px solid #fff;
@@ -139,9 +143,22 @@ input:focus, button:active{
     font-size: 25px;
     font-weight: 600;
 }
+
+
+/* Main Section */
 #main section{
     margin: 50px 0px;
 }
+
+
+/* Pour que l'imge s'avence au hover */
+.zoom:hover img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+
 #films, #series, #recherche, #video-single, #genre{
     padding-top: 60px;
 }

@@ -24,7 +24,7 @@
             <div class="row">
 
                 {% for post in posts %}
-                <div class="col-4 col-md-2 dispo p-1 mb-2">
+                <div class="col-4 col-md-2 zoom p-1 mb-2">
                     <a href="{% url 'detail_post' post.slug %}"><img src="{{post.picture.url}}" alt="{{post.title}}" class="w-100 h-100"></a>
                 </div>
                 {% endfor %}
@@ -43,7 +43,7 @@
             <div class="row">
                 
                 {% for random in randoms %}
-                <div class="col-4 col-md-2 dispo p-1 mb-2">
+                <div class="col-4 col-md-2 zoom p-1 mb-2">
                     <a href="{% url 'detail_post' random.slug %}"><img src="{{random.picture.url}}" alt="{{random.title}}" class="w-100 h-100"></a>
                 </div>
                 {% endfor %}
@@ -62,7 +62,7 @@
             <div class="row">
                 
                 {% for random in randoms %}
-                <div class="col-4 col-md-2 dispo p-1 mb-2">
+                <div class="col-4 col-md-2 zoom p-1 mb-2">
                     <a href="{% url 'detail_post' random.slug %}"><img src="{{random.picture.url}}" alt="{{random.title}}" class="w-100 h-100"></a>
                 </div>
                 {% endfor %}
@@ -82,7 +82,7 @@
             <div class="row">
                 
                 {% for random in randoms %}
-                <div class="col-4 col-md-2 dispo p-1 mb-2">
+                <div class="col-4 col-md-2 zoom p-1 mb-2">
                     <a href="{% url 'detail_post' random.slug %}"><img src="{{random.picture.url}}" alt="{{random.title}}" class="w-100 h-100"></a>
                 </div>
                 {% endfor %}

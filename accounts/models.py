@@ -19,3 +19,12 @@ class User(AbstractUser):
 
     def __str__(self):
         return f'{self.last_name} {self.first_name}'
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    pay = models.FloatField(null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'{self.user.full_name}'

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth import get_user_model
-from post.forms import PostForm
+from .forms import PostForm
 from post.models import Post
 
 
