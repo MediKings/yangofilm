@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse     
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from .models import Post, Genre, Comment, Pub
 from back.forms import CommentForm
@@ -31,6 +31,9 @@ def DetailPost(request, slug):
     aside = Post.objects.all().order_by('?')[:8]
     genres = Genre.objects.all()
     template_name = 'post/detail_post.html'
+    liked = False
+    if request.user in post.likes.all():
+        liked = True
     # Commentaires
     comments = Comment.objects.filter(post=post).order_by('date')
     user = request.user
@@ -49,7 +52,8 @@ def DetailPost(request, slug):
         'form': form, 
         'comments': comments, 
         'genres': genres, 
-        'aside': aside
+        'aside': aside,
+        'liked': liked,
         })
 
     
@@ -149,6 +153,28 @@ def Nouveautes(request):
         'genres': genres,
         }
     return render(request, template_name, context)
+
+
+def Likes(request, slug):
+    user = request.user
+    liked = False
+    if request.method == 'POST':
+        post = Post.objects.get(slug=slug)
+        if user in post.likes.all():
+            post.likes.remove(user)
+            liked = False
+            return HttpResponseRedirect(reverse('detail_post', args=[slug]))
+        else:
+            post.likes.add(user)
+            liked = True
+            context = {
+                'post': post,
+                'liked': liked,
+                'likes_number': post.likes.count(),
+                }
+            return HttpResponseRedirect(reverse('detail_post', args=[slug]))
+    else:
+        return render(request, 'post/index.html')
 
 
 # def Populaires(request):

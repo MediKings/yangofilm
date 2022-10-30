@@ -176,6 +176,13 @@ input:focus, button:active{
     background-color: rgb(82, 82, 82);
     color: white;
 }
+#video-single form .like_btn{
+    background: transparent;
+    border: none;
+}
+#video-single form .like_btn i{
+    font-size: 18px;
+}
 
 
 /* Sidebar */

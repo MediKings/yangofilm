@@ -54,7 +54,7 @@ def Login(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, "Données incorrects! Réessayez")
+            messages.error(request, "Mot de passe incorrects! Réessayez")
             return redirect('login')
     else:
         return render(request, 'accounts/login.html')

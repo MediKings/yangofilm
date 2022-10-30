@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import Home, DetailPost, Films, Series, Documentaires, Emissions, Tele_realites, Search, Genres, Nouveautes
+from .views import Home, DetailPost, Likes, Films, Series, Documentaires, Emissions, Tele_realites, Search, Genres, Nouveautes
 
 
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
     path('tele_realites/', Tele_realites, name='tele_realites'),
     path('nouveautes/', Nouveautes, name='nouveautes'),
     path('detail_post/<str:slug>/', DetailPost, name='detail_post'),
+    path('likes/<str:slug>', Likes, name='likes'),
 ]

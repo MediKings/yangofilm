@@ -17,8 +17,18 @@
                 <source src="{{post.video.url}}">
             </video>
             
-            <section>
-                <i class="fa fa-eye"></i> 4k vues | <button class="btn btn-primary py-0">Like</button>
+            <section class="d-flex align-items-center">
+                <i class="fa fa-eye"></i> &nbsp; 4k vues | &nbsp; <span> {{post.likes.count}} </span> &nbsp;
+                <form action="{% url 'likes' post.slug %}" method="post" style="display: inline-block;">
+                    {% csrf_token %}
+                    <button type="submit" class="like_btn">
+                        {% if liked %}
+                        <i class="bx bxs-like text-white"></i>
+                        {% else %}
+                        <i class="bx bx-like text-white"></i>
+                        {% endif %}
+                    </button>
+                </form>
                 
                 {% if user.is_superuser %}
                 - <a href="{% url 'update_post' post.slug %}" class="btn btn-primary"><i class="fa fa-edit">Modifier</i></a> 

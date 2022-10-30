@@ -16,6 +16,7 @@ class Post(models.Model):
     picture = models.ImageField(upload_to='image/')
     large_picture = models.ImageField(upload_to='image/')
     video = models.FileField(upload_to='video/')
+    likes = models.ManyToManyField(User, related_name='likes')
     date = models.DateTimeField(auto_now_add=True)
     slide = models.BooleanField(default=False)
 
