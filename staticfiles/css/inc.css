@@ -1,0 +1,281 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    transition: all 0.5s;
+}
+html, body{
+    height: 100%;
+}
+body{
+    background-color: rgb(22, 22, 22) !important;
+    color: #ccc !important;
+}
+header{
+    position: fixed;
+    width: 100%;
+    height: 55px;
+    padding: 0px 30px;
+    text-transform: uppercase;
+    background-color: rgba(22, 22, 22, 0.9);
+    z-index: 99;
+}
+a{
+    color: #fff;
+    text-decoration: none !important;
+}
+a:hover{
+    color: #fff;
+}
+header .navbar-brand{
+    color: red;
+    font-weight: 800;
+    font-size: 20px;
+}
+header .navbar-nav{
+    border-left: 1px solid rgb(82, 82, 82);
+    margin-left: 20px;
+}
+header .navbar-nav .active{
+    background-color: red;
+    color: #fff;
+}
+header .responsive ul{
+    background-color: rgb(15, 15, 15);
+    margin: 0px;
+}
+header .fa-bars, header .fa-search{
+    font-size: 17px;
+}
+header form input{
+    width: 200px;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    font-size: 17px;
+}
+header form button{
+    background: transparent;
+    outline: none;
+    border: none;
+    color: #ccc;
+    padding: 5px;
+}
+header .nav a{
+    color: #ccc;
+}
+header #links{
+    position: absolute;
+    background-color: rgb(22, 22, 22);
+    border-radius: 5px;
+}
+header #links li{
+    list-style: none;
+    text-transform: capitalize;
+    color: #fff;
+}
+header #links a{
+    color: #fff;
+}
+header #links a:hover{
+    color: red;
+}
+header .n-auth{
+    background-color: red;
+    padding: 13px;
+    border-radius: 50%;
+    color: #fff;
+}
+header .fa-user{
+    padding: 7px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    color: #fff;
+}
+header p, #main .voir-plus, #regarder{
+    background-color: red;
+    padding: 8px;
+    color: #fff;
+    border-radius: 5px;
+}
+header p a:hover{
+    color: #fff;
+}
+header .connexion li{
+    list-style: none;
+    background-color: rgb(22, 22, 22);
+}
+header .connexion li a{
+    color: #ccc;
+    text-decoration: none;
+}
+
+
+/* Search Bar */
+#recherche form{
+    width: auto;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    font-size: 15px;
+}
+#recherche form input{
+    background: transparent;
+    border: none;
+    width: 90%;
+    padding: 5px;
+    color: #fff;
+}
+input:focus, button:active{
+    border: none !important;
+}
+#recherche form button{
+    background: transparent;
+    padding: 5px;
+    color: #fff;
+    border: none;
+}
+#recherche span{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+/* Main Section */
+#main section{
+    margin: 50px 0px;
+}
+
+
+/* Pour que l'imge s'avence au hover */
+.zoom:hover img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+
+#films, #series, #recherche, #video-single, #genre{
+    padding-top: 60px;
+}
+#video-single .synopsis{
+    background-color: rgb(82, 82, 82);
+}
+#video-single section{
+    margin-top: 30px;
+    text-transform: capitalize;
+}
+#video-single .comment{
+    margin-top: 40px;
+}
+#video-single form textarea{
+    background-color: rgb(82, 82, 82);
+    color: white;
+}
+#video-single form .like_btn{
+    background: transparent;
+    border: none;
+}
+#video-single form .like_btn i{
+    font-size: 18px;
+}
+
+
+/* Sidebar */
+#sidebar{
+    border-left: 1px solid rgb(82, 82, 82);
+}
+#sidebar .pub img{
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+}
+#sidebar .genre li{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(15, 15, 15);
+    text-transform: capitalize;
+}
+#sidebar .genre li a{
+    color: #fff;
+}
+#sidebar .other-films .row{
+    background-color:rgb(15, 15, 15);
+}
+#sidebar .other-films a{
+    color: white;
+    text-decoration: none;
+}
+#sidebar .other-films img{
+    height: auto;
+}
+#sidebar .other-films span{
+    font-size: 15px;
+    padding: 10px 0px;
+}
+
+
+/* Authentication */
+#login, #register{
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#login::before, #register::before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+#login form{
+    background-color: rgb(10, 10, 10);
+    padding: 10px;
+}
+#register form{
+    background-color: rgb(10, 10, 10);
+    padding: 15px;
+}
+
+/* Footer */
+footer{
+    height: 300px;
+    background-color: rgb(15, 15, 15);
+    
+}
+
+@media screen and (max-width: 768px) {
+    #menu{
+        position: absolute;
+        width: 100%;
+        top: 40px;
+        background-color: black;
+        padding-left: 20px;
+    }
+    #hero{
+        height: 500px;
+        object-fit: cover;
+    }
+    #hero img{
+        height: 500px;
+        object-fit: cover;
+    }
+    #recherche h2{
+        font-size: 17px;
+    }
+    #recherche span{
+        font-size: 17px;
+        font-weight: 600;
+    }
+    #sidebar .pub img{
+        height: 150px;
+    }
+}
+
